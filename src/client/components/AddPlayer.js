@@ -88,10 +88,13 @@ class AddPlayer extends Component {
           <label htmlFor="winnings">
             Winnings
             <input
-              type="number"
+              type="text"
               id="winnings"
               name="winnings"
               placeholder="1234567"
+              max="2147483647"
+              required="required"
+              pattern="(2000000000|([1]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?))"
               autoComplete="off"
               onChange={e => this.handleChange(e)}
             />

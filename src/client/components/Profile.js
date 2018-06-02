@@ -34,7 +34,6 @@ class Profile extends Component {
   }
 
   handleUpdatePlayer() {
-    console.log(this.state);
     const { id } = this.props.match.params;
     fetch(`/api/player/${id}`, {
       method: 'PUT',
