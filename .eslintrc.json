@@ -1,0 +1,16 @@
+{
+  "extends": ["airbnb"],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "no-console": "off",
+    "comma-dangle": "off",
+    "react/jsx-filename-extension": "off",
+    "react/sort-comp": "off",
+    "class-methods-use-this": "off",
+    "no-use-before-define": "off",
+    "react/prop-types": "off"
+  }
+}

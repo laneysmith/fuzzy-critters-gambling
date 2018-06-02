@@ -1,0 +1,83 @@
+@import './_nav.css';
+@import './_leaderboard.css';
+@import './_profile.css';
+@import './_add.css';
+@import './_bootstrapButtons.css';
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    font: 0.8em 'Lato', sans-serif;
+    background: #fdfdfd;
+}
+
+#root {
+    min-height: 100vh;
+    margin: 0;
+}
+
+#appContainer {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    margin: 0;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+main {
+    display: flex;
+    flex: 1;
+    width: 768px;
+    margin: 0 auto;
+    flex-direction: column;
+    padding: 1em;
+}
+
+header, footer {
+    padding: 1.2em;
+    background-color: #333;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #efefef;
+    font-size: 1.5em;
+    font-weight: bold;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+header div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+footer {
+    color: #dddddd;
+    font-size: 0.9em;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+button .fas {
+    margin-left: 8px;
+}
+
+button.fixed {
+    width: 90px;
+}
+
+input {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 4px;
+}

@@ -1,0 +1,82 @@
+.table {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin: 0 auto;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.24);
+    background-color: #fff;
+}
+
+.chartRow {
+    display: flex;
+    flex-flow: row wrap;
+    flex: 1;
+    width: 100%;
+}
+
+.chartRow:first-child {
+    font: 0.9rem 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+}
+
+.chartRow:nth-child(even) {
+    background: #f7f7f7;
+}
+
+.chartRow .description {
+    display: flex;
+    flex: 4;
+    margin: 0;
+    align-items: center;
+    padding: 0.5em;
+}
+
+.chartRow .cell {
+    padding: 0.5em;
+    display: flex;
+    flex-basis: 100px;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    /* border-left: 1px solid #efefef; */
+}
+
+.chartRow:not(:last-child) {
+    border-bottom: 1px solid #efefef;
+}
+
+@media (max-width: 600px) {
+    .cardGroup {
+        flex-direction: column;
+    }
+}
+
+.playerThumbnail {
+    background: #fff;
+    width: 50px;
+    height: 50px;
+    margin-right: 8px;
+    padding: 0;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.playerProfile {
+    background: #fff;
+    width: 100px;
+    height: 100px;
+    margin-right: 5px;
+    padding: 0;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.flag-icon {
+    width: 25px !important;
+    height: 25px !important;
+    margin-right: 5px;
+}
