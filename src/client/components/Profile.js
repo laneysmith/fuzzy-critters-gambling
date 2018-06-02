@@ -1,21 +1,29 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import SectionHeading from './SectionHeading';
 import { renderFlag, moneyFormatter } from '../helpers/countryCodes';
 
-export default class Profile extends Component {
+class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isEditing: false
-      // changesMade: false
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.toggleIsEditing = this.toggleIsEditing.bind(this);
+    this.handleUpdatePlayer = this.handleUpdatePlayer.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   componentDidMount() {
     fetch(`/api/player/${this.props.match.params.id}`)
       .then(res => res.json())
       .then((response) => {
-        this.setState(() => response.data);
+        this.setState(() => response);
       });
   }
 
@@ -25,21 +33,39 @@ export default class Profile extends Component {
     }));
   }
 
-  deletePlayer(id, name) {
-    const msg = `Are you sure you want to delete ${name}?`;
-    alert(msg);
+  handleUpdatePlayer() {
+    console.log(this.state);
+    const { id } = this.props.match.params;
+    fetch(`/api/player/${id}`, {
+      method: 'PUT',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id,
+        winnings: this.state.winnings
+      })
+    }).then(() => this.toggleIsEditing());
+  }
+
+  handleDeletePlayer(id) {
+    fetch(`/api/player/${id}`, {
+      method: 'DELETE'
+    }).then(() => this.props.history.push('/'));
   }
 
   renderModifySaveButton(isEditing) {
     const color = isEditing ? 'success' : 'primary';
     const text = isEditing ? 'Save' : 'Modify';
     const icon = isEditing ? 'save' : 'user-edit';
+    const action = isEditing ? this.handleUpdatePlayer : this.toggleIsEditing;
     return (
       <button
         type="button"
         className={`btn btn-small btn-${color} fixed`}
-        onClick={() => this.toggleIsEditing()}
-        alt="Modify player"
+        onClick={() => action()}
+        alt={`${text} player`}
       >
         {text}
         <i className={`fas fa-${icon}`} />
@@ -58,7 +84,7 @@ export default class Profile extends Component {
             <button
               type="button"
               className="btn btn-small btn-danger fixed"
-              onClick={() => this.deletePlayer(id, name)}
+              onClick={() => this.handleDeletePlayer(id)}
               alt="Delete player"
             >
               Delete <i className="fas fa-trash-alt" />
@@ -77,7 +103,13 @@ export default class Profile extends Component {
               <div className="label">Winnings</div>
               <div className="detail">
                 {isEditing ? (
-                  <input defaultValue={winnings} type="number" />
+                  <input
+                    id="winnings"
+                    name="winnings"
+                    defaultValue={winnings}
+                    type="number"
+                    onChange={e => this.handleChange(e)}
+                  />
                 ) : (
                   moneyFormatter(winnings)
                 )}
@@ -90,3 +122,5 @@ export default class Profile extends Component {
     return 'Loading player...';
   }
 }
+
+export default withRouter(Profile);

@@ -3,7 +3,8 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const indexRouter = require('./routes/index');
+const playerRouter = require('./routes/player.js');
+const countryRouter = require('./routes/country.js');
 
 const app = express();
 
@@ -15,7 +16,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // add routes
-app.use('/api', indexRouter);
+app.use('/api', playerRouter);
+app.use('/api', countryRouter);
 
 app.use('*', (req, resp) => resp.sendFile('./public/index.html'));
 
