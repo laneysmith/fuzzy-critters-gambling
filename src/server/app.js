@@ -13,13 +13,11 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, '../../dist')));
 
 // add routes
 app.use('/api', playerRouter);
 app.use('/api', countryRouter);
-
-app.use('*', (req, resp) => resp.sendFile('./public/index.html'));
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
