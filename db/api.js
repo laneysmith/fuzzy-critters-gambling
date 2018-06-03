@@ -11,7 +11,8 @@ module.exports = {
       .select(
         'player.id',
         'player.name',
-        'country.alpha3 as nationality',
+        'country.alpha3 as nationality3',
+        'country.alpha2 as nationality2',
         'player.winnings',
         'player.imgSrc'
       )
@@ -23,7 +24,8 @@ module.exports = {
       .select(
         'player.id',
         'player.name',
-        'country.alpha3 as nationality',
+        'country.alpha3 as nationality3',
+        'country.alpha2 as nationality2',
         'player.winnings',
         'player.imgSrc'
       )

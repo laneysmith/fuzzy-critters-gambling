@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeading from './SectionHeading';
-import { renderFlag, moneyFormatter } from '../helpers/countryCodes';
+import { renderFlag, moneyFormatter } from '../helpers';
 
 export default class Leaderboard extends Component {
   constructor(props) {
@@ -21,13 +21,13 @@ export default class Leaderboard extends Component {
     if (playerData) {
       return playerData.map((player, index) => {
         const {
-          id, name, nationality, winnings, imgSrc
+          id, name, nationality3, nationality2, winnings, imgSrc
         } = player;
         return (
           <div className="chartRow" key={player.id}>
             <div className="cell">#{index + 1}</div>
             <div className="cell">
-              {renderFlag(nationality)} {nationality}
+              {renderFlag(nationality2)} {nationality3}
             </div>
             <div className="description">
               <img src={imgSrc} className="playerThumbnail" alt={name} />

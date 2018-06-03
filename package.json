@@ -1,21 +1,20 @@
 {
-  "name": "leaderboard",
-  "version": "0.0.0",
+  "name": "fuzzy-critters-gambling",
+  "url": "https://github.com/laneysmith/fuzzy-critters-gambling",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "src/server/app.js",
   "scripts": {
-    "start": "webpack --mode production && node src/server/app.js",
+    "start": "node src/server/app.js",
     "build": "webpack --mode production",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "server": "nodemon src/server/app.js",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "dependencies": {
-    "bootstrap": "^4.0.0-beta.2",
     "cookie-parser": "^1.4.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
-    "flag-icon-css": "^3.0.0",
     "http-errors": "^1.6.3",
     "knex": "^0.14.6",
     "morgan": "^1.9.0",
@@ -42,7 +41,6 @@
     "less-loader": "^4.1.0",
     "nodemon": "^1.17.3",
     "style-loader": "^0.20.3",
-    "svg-url-loader": "^2.3.2",
     "webpack": "^4.5.0",
     "webpack-cli": "^2.0.14",
     "webpack-dev-server": "^3.1.3"

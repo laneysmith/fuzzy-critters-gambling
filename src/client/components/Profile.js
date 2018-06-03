@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import SectionHeading from './SectionHeading';
-import { renderFlag, moneyFormatter } from '../helpers/countryCodes';
+import { renderFlag, moneyFormatter } from '../helpers';
 
 class Profile extends Component {
   constructor(props) {
@@ -75,7 +75,7 @@ class Profile extends Component {
   render() {
     if (this.state.id) {
       const {
-        name, winnings, nationality, id, imgSrc, isEditing
+        name, winnings, nationality3, nationality2, id, imgSrc, isEditing
       } = this.state;
       return (
         <section id="profile">
@@ -97,7 +97,7 @@ class Profile extends Component {
               <div className="detail">{id}</div>
               <div className="label">Nationality</div>
               <div className="detail">
-                {renderFlag(nationality)} {nationality}
+                {renderFlag(nationality2)} {nationality3}
               </div>
               <div className="label">Winnings</div>
               <div className="detail">

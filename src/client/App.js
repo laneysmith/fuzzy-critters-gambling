@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import './styles/main.css';
-import '../../node_modules/flag-icon-css/css/flag-icon.min.css';
 import Header from './components/Header';
 import Leaderboard from './components/Leaderboard';
 import Profile from './components/Profile';
